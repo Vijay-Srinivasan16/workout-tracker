@@ -1,0 +1,23 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # adjust this to your main branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: ng build --output-path docs --base-href https://vijay-srinivasan16.github.io/workout-tracker/
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        BRANCH: main  # adjust this to the branch you want to deploy to
+        FOLDER: docs  # adjust this to your project's build folder
