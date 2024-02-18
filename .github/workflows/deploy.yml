@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
 
     - name: Build
       run: ng build --output-path docs --base-href https://vijay-srinivasan16.github.io/workout-tracker/
